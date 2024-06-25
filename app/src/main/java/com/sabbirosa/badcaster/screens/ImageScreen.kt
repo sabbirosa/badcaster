@@ -23,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -41,7 +42,8 @@ fun ImageScreen(
         modifier = Modifier
             .padding(innerPadding)
             .fillMaxSize()
-            .background(Color.White)
+            .background(Color.White),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         val imageResId = com.sabbirosa.badcaster.R.drawable.badcaster_image
         Text(text = "Image Screen", fontSize = 24.sp, modifier = Modifier.padding(16.dp), color = Color.Black, style = androidx.compose.ui.text.TextStyle(fontWeight = androidx.compose.ui.text.font.FontWeight.Bold))

@@ -30,7 +30,8 @@ fun AudioScreen(
         modifier = Modifier
             .padding(innerPadding)
             .fillMaxSize()
-            .background(Color.White)
+            .background(Color.White),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Audio Screen",
