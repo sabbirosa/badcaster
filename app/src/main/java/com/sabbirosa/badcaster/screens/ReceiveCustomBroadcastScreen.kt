@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -22,7 +23,6 @@ import androidx.compose.ui.unit.dp
 class CustomReceiver(private val onMessageReceived: (String) -> Unit) : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val message = intent?.getStringExtra("broadcast_message") ?: "No message"
-        Log.d("CustomReceiver", "Received message: $message")
         onMessageReceived(message)
     }
 }
@@ -47,6 +47,8 @@ fun CustomBroadcastReceiveScreen() {
             context.unregisterReceiver(receiver)
         }
     }
+
+    Toast.makeText(context, "Custom Broadcast Message: $CustomReceivedMessage", Toast.LENGTH_SHORT).show()
 
     Text(
         text = "Custom Received Message: $CustomReceivedMessage",

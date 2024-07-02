@@ -19,6 +19,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.sabbirosa.badcaster.ui.screens.CustomBroadcastReceiveScreen
 
+private fun sendBroadCast(context: Context, text: String){
+    val intent = Intent("com.sabbirosa.badcaster.CUSTOM_BROADCAST").apply {
+        putExtra("broadcast_message", text)
+    }
+    context.sendBroadcast(intent)
+//    Toast.makeText(context, "Custom Broadcast Message: $text", Toast.LENGTH_SHORT).show()
+}
+
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun CustomBroadcastSendScreen(){
@@ -38,12 +46,4 @@ fun CustomBroadcastSendScreen(){
         Text(text = "Broadcast")
     }
     CustomBroadcastReceiveScreen()
-}
-
-private fun sendBroadCast(context: Context, text: String){
-    val intent = Intent("com.sabbirosa.badcaster.CUSTOM_BROADCAST").apply {
-        putExtra("broadcast_message", text)
-    }
-    context.sendBroadcast(intent)
-    Toast.makeText(context, "Custom Broadcast Message: $text", Toast.LENGTH_SHORT).show()
 }
